@@ -153,9 +153,10 @@ console.log(arraySortNumber);
 
 function declarationSortArray(array){
     let temp;
+    let arrayLength = array.length;
     return function (ascOrDesc = 'asc') {
-        for(let i = 0; i < array.length; i++){
-            for(let j = 0; j < array.length;j++){
+        for(let i = 0; i < arrayLength; i++){
+            for(let j = 0; j < arrayLength;j++){
                 if (ascOrDesc === 'desc') {
                     if ((array[j] < array[j+1]) * 1) {
                         temp = array[j];
@@ -179,9 +180,10 @@ console.log(`Function Declaration: ${dSortArray()}`);
 
 let expressionSortArray = function (array) {
     let temp;
+    let arrayLength = array.length;
     return function (ascOrDesc = 'asc') {
-        for(let i = 0; i < array.length; i++){
-            for(let j = 0; j < array.length;j++){
+        for(let i = 0; i < arrayLength; i++){
+            for(let j = 0; j < arrayLength;j++){
                 if (ascOrDesc === 'desc') {
                     if ((array[j] < array[j+1]) * 1) {
                         temp = array[j];
@@ -207,9 +209,10 @@ console.log(`Function Expression: ${eSortArray('desc')}`);
 
 let arrowSortArray = (array) => {
     let temp;
+    let arrayLength = array.length;
     return function (ascOrDesc = 'asc') {
-        for(let i = 0; i < array.length; i++){
-            for(let j = 0; j < array.length;j++){
+        for(let i = 0; i < arrayLength; i++){
+            for(let j = 0; j < arrayLength;j++){
                 if (ascOrDesc === 'desc') {
                     if ((array[j] < array[j+1]) * 1) {
                         temp = array[j];
@@ -240,7 +243,8 @@ console.log(arrayNumberBySearch);
 
 function declarationSearchNumber (array, number) {
     let quantity = 0;
-    for (let i = 0; i < array.length; i++) {
+    let arrayLength = array.length;
+    for (let i = 0; i < arrayLength; i++) {
         if (array[i] === number) {
             quantity++;
         }
@@ -256,7 +260,8 @@ console.log(`Function Declatation: Found 2: ${declarationSearchNumber(arrayNumbe
 
 let expressionSearchNumber = function (array, number) {
     let quantity = 0;
-    for (let i = 0; i < array.length; i++) {
+    let arrayLength = array.length;
+    for (let i = 0; i < arrayLength; i++) {
         if (array[i] === number) {
             quantity++;
         }
@@ -272,7 +277,8 @@ console.log(`Function Expression: Found 7: ${expressionSearchNumber(arrayNumberB
 
 let arrowSearchNumber = (array, number) => {
     let quantity = 0;
-    for (let i = 0; i < array.length; i++) {
+    let arrayLength = array.length;
+    for (let i = 0; i < arrayLength; i++) {
         if (array[i] === number) {
             quantity++;
         }
@@ -294,8 +300,9 @@ let arrayWordForReverse = ['Alex', 'Vanya' , 'Tanya', 'Lena', 'Tolya'];
 console.log(arrayWordForReverse);
 function declarationArrayReverse(arrayForReverse) {
     let temp;
-    for (let i = 0; i < arrayForReverse.length-1;i++){
-        for(let j = 0; j < arrayForReverse.length-1-i;j++){
+    let arrayLength = arrayForReverse.length;
+    for (let i = 0; i < arrayLength-1;i++){
+        for(let j = 0; j < arrayLength-1-i;j++){
             temp = arrayForReverse[j];
             arrayForReverse[j] = arrayForReverse[j+1];
             arrayForReverse[j+1] = temp;
@@ -309,8 +316,9 @@ console.log(`Function Declatation: ${declarationArrayReverse(arrayWordForReverse
 
 let expressionArrayReverse = function (arrayForReverse) {
     let temp;
-    for (let i = 0; i < arrayForReverse.length-1;i++){
-        for(let j = 0; j < arrayForReverse.length-1-i;j++){
+    let arrayLength = arrayForReverse.length;
+    for (let i = 0; i < arrayLength-1;i++){
+        for(let j = 0; j < arrayLength-1-i;j++){
             temp = arrayForReverse[j];
             arrayForReverse[j] = arrayForReverse[j+1];
             arrayForReverse[j+1] = temp;
@@ -323,8 +331,9 @@ console.log(`Function Expression: ${expressionArrayReverse(arrayWordForReverse)}
 
 let arrowArrayReverse = (arrayForReverse) => {
     let temp;
-    for (let i = 0; i < arrayForReverse.length-1;i++){
-        for(let j = 0; j < arrayForReverse.length-1-i;j++){
+    let arrayLength = arrayForReverse.length;
+    for (let i = 0; i < arrayLength-1;i++){
+        for(let j = 0; j < arrayLength-1-i;j++){
             temp = arrayForReverse[j];
             arrayForReverse[j] = arrayForReverse[j+1];
             arrayForReverse[j+1] = temp;
@@ -352,8 +361,9 @@ let stringForReverse = 'Hi I am ALex';
 function declarationStringReverse(stringForReverse) {
     let arrayLetters = stringForReverse.split('');
     let temp;
-    for (let i = 0; i < arrayLetters.length-1;i++){
-        for(let j = 0; j < arrayLetters.length-1-i;j++){
+    let arrayLength = stringForReverse.length;
+    for (let i = 0; i < arrayLength-1;i++){
+        for(let j = 0; j < arrayLength-1-i;j++){
             temp = arrayLetters[j];
             arrayLetters[j] = arrayLetters[j+1];
             arrayLetters[j+1] = temp;
@@ -368,8 +378,9 @@ console.log(`Function Declatation: ${declarationStringReverse(stringForReverse)}
 let expressionStringReverse = function (stringForReverse) {
     let arrayLetters = stringForReverse.split('');
     let temp;
-    for (let i = 0; i < arrayLetters.length-1;i++){
-        for(let j = 0; j < arrayLetters.length-1-i;j++){
+    let arrayLength = stringForReverse.length;
+    for (let i = 0; i < arrayLength-1;i++){
+        for(let j = 0; j < arrayLength-1-i;j++){
             temp = arrayLetters[j];
             arrayLetters[j] = arrayLetters[j+1];
             arrayLetters[j+1] = temp;
@@ -381,11 +392,12 @@ let expressionStringReverse = function (stringForReverse) {
 
 console.log(`Function Expression: ${expressionStringReverse(stringForReverse)}`);
 
-let arrowStringReverse = () => {
+let arrowStringReverse = (stringForReverse) => {
     let arrayLetters = stringForReverse.split('');
     let temp;
-    for (let i = 0; i < arrayLetters.length-1;i++){
-        for(let j = 0; j < arrayLetters.length-1-i;j++){
+    let arrayLength = stringForReverse.length;
+    for (let i = 0; i < arrayLength-1;i++){
+        for(let j = 0; j < arrayLength-1-i;j++){
             temp = arrayLetters[j];
             arrayLetters[j] = arrayLetters[j+1];
             arrayLetters[j+1] = temp;
@@ -418,7 +430,8 @@ function declarationArrayToLowerCase (array) {
 console.log(`Function Declatation: ${declarationArrayToLowerCase(arrayTask13)}`);
 
 let expressionArrayToLowerCase = function (array) {
-    for (let i = 0; i< array.length; i++) {
+    let arrayLength = array.length;
+    for (let i = 0; i< arrayLength; i++) {
         array[i] = array[i].toLowerCase();
     }
     return array;
@@ -429,7 +442,8 @@ arrayTask13 = ['AlexXXXXXX', 'Vanya', 'TanyaFFFFF', 'Lena', 'Tolya'];
 console.log(`Function Expression: ${expressionArrayToLowerCase(arrayTask13)}`);
 
 let arrowArrayToLowerCase = (array) => {
-    for (let i = 0; i< array.length; i++) {
+    let arrayLength = array.length;
+    for (let i = 0; i< arrayLength; i++) {
         array[i] = array[i].toLowerCase();
     }
     return array;
@@ -482,8 +496,9 @@ console.log(`Task 16. Sort array.`);
 let arrayTask16 = [44, 12, 11, 7, 1, 99, 43, 5, 69,10];
 let declarationArrowSortArray = (array) => {
     let temp;
-    for(let i = 0; i < array.length-1;i++){
-        for(let j = 0; j < array.length-1-i;j++){
+    let arrayLength = array.length;
+    for(let i = 0; i < arrayLength-1;i++){
+        for(let j = 0; j < arrayLength-1-i;j++){
             if (array[j] < array[j+1]) {
                 temp = array[j];
                 array[j] = array[j+1];
@@ -501,8 +516,9 @@ arrayTask16 = [44, 12, 11, 7, 11, 58, 43, 5, 69];
 
 let expressionArrowSortArray = function (array) {
     let temp;
-    for(let i = 0; i < array.length-1;i++){
-        for(let j = 0; j < array.length-1-i;j++){
+    let arrayLength = array.length;
+    for(let i = 0; i < arrayLength-1;i++){
+        for(let j = 0; j < arrayLength-1-i;j++){
             if (array[j] < array[j+1]) {
                 temp = array[j];
                 array[j] = array[j+1];
@@ -520,8 +536,9 @@ arrayTask16 = [44, 12, 11, 7, 11, 58, 43, 5, 69,45,65,13];
 
 let arrowArrowSortArray = (array) => {
     let temp;
-    for(let i = 0; i < array.length-1;i++){
-        for(let j = 0; j < array.length-1-i;j++){
+    let arrayLength = array.length;
+    for(let i = 0; i < arrayLength-1;i++){
+        for(let j = 0; j < arrayLength-1-i;j++){
             if (array[j] < array[j+1]) {
                 temp = array[j];
                 array[j] = array[j+1];
