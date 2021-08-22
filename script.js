@@ -7,21 +7,19 @@ function declatationSquare (firstSide,secondSide) {
 
 console.log(`Function Declaration: Square rectangle with sides 5 and 6: ${declatationSquare(5,6)}`);
 
-let expressionSquare = function (firstSide,secondSide) {
+let expressionSquare = function (firstSide, secondSide) {
     return firstSide * secondSide;
 }
 
 console.log(`Function Expression: Square rectangle with sides 4 and 5: ${declatationSquare(4,5)}`);
 
-let arrowSquare = (firstSide,secondSide) => {
-    return firstSide * secondSide;
-};
+let arrowSquare = (firstSide, secondSide) => firstSide * secondSide; 
 
 console.log(`Arrow Function: Square rectangle with sides 10 and 2: ${declatationSquare(10,2)}`);
 
 console.log('Task 2. Calculate by Pythagorean theorem.');
 
-function declarationPythagorean(firstSide,secondSide){
+function declarationPythagorean(firstSide, secondSide){
     return Math.sqrt(firstSide*firstSide + secondSide*secondSide);
 }
 
@@ -33,29 +31,26 @@ let expressionPythagorean = function (firstSide,secondSide) {
 
 console.log(`Function Expression: Calculate by Pythagorean theorem  1 and 4: ${expressionPythagorean(1,4)}`);
 
-let arrowPythagorean = (firstSide,secondSide) => {
-    return Math.sqrt(firstSide*firstSide + secondSide*secondSide);
-}
+let arrowPythagorean = (firstSide, secondSide) => Math.sqrt(firstSide*firstSide + secondSide*secondSide);
+
 
 console.log(`Arrow function: Calculate by Pythagorean theorem  1 and 5: ${arrowPythagorean(1,5)}`);
 
 console.log('Task 3. Find the discriminant.');
 
-function declarationDiscriminant(a,b,c) {
+function declarationDiscriminant(a, b, c) {
     return (b * b) - (4 * a * c);
 }
 
 console.log(`Function Declaration: Calculate the dicscriminant  1, 2, 3: ${declarationDiscriminant(1,2,3)}`);
 
-let expressionDiscriminant = function (a,b,c) {
+let expressionDiscriminant = function (a, b, c) {
     return (b * b) - (4 * a * c);
 }
 
 console.log(`Function Expression: Calculate the dicscriminant  2, 5, 2: ${expressionDiscriminant(2,5,2)}`);
 
-let arrowDiscriminant = (a,b,c) => {
-    return (b * b) - (4 * a * c);
-}
+let arrowDiscriminant = (a, b, c) => (b * b) - (4 * a * c);
 
 console.log(`Arrow function: Calculate the dicscriminant  3, 10, 5: ${arrowDiscriminant(3,10,5)}`);
 
@@ -121,7 +116,7 @@ console.log(`Arrow function: Create even or odd numbers: ${arrowEvenOrOddNumbers
 
 console.log('Task 6. Exponentiation.');
 
-function declarationExponentiation (number,exp) {
+function declarationExponentiation (number, exp) {
     let numberExp = 1;
     for(let i = 0;i < exp; i++){    
         numberExp *= number;
@@ -131,7 +126,7 @@ function declarationExponentiation (number,exp) {
 
 console.log(`Function Declaration: Exponentiation number 3 in 2 : ${declarationExponentiation(3,2)}`);
 
-let expressionExponentiation = function (number,exp) {
+let expressionExponentiation = function (number, exp) {
     let numberExp = 1;
     for(let i = 0;i < exp; i++){    
         numberExp *= number;
@@ -141,7 +136,7 @@ let expressionExponentiation = function (number,exp) {
 
 console.log(`Function Expression: Exponentiation number 2 in 3: ${expressionExponentiation(2,3)}`);
 
-let arrowExponentiation = (number,exp) => {
+let arrowExponentiation = (number, exp) => {
     let numberExp = 1;
     for(let i = 0;i < exp; i++){    
         numberExp *= number;
@@ -156,80 +151,87 @@ console.log('Task 7. Sort array asc or desc');
 let arraySortNumber = [3,5,7,2,7,3,1];
 console.log(arraySortNumber);
 
-function declarationSortArray(array, ascOrDesc = 'asc'){
+function declarationSortArray(array){
     let temp;
-    for(let i = 0; i < array.length; i++){
-        for(let j = 0; j < array.length;j++){
-            if (ascOrDesc === 'desc') {
-                if ((array[j] < array[j+1]) * 1) {
-                    temp = array[j];
-                    array[j] = array[j+1];
-                    array[j+1] = temp;
-                }
-            }else if (ascOrDesc === 'asc') {
-                if ((array[j] > array[j+1]) * 1) {
-                    temp = array[j];
-                    array[j] = array[j+1];
-                    array[j+1] = temp;
+    return function (ascOrDesc = 'asc') {
+        for(let i = 0; i < array.length; i++){
+            for(let j = 0; j < array.length;j++){
+                if (ascOrDesc === 'desc') {
+                    if ((array[j] < array[j+1]) * 1) {
+                        temp = array[j];
+                        array[j] = array[j+1];
+                        array[j+1] = temp;
+                    }
+                }else if (ascOrDesc === 'asc') {
+                    if ((array[j] > array[j+1]) * 1) {
+                        temp = array[j];
+                        array[j] = array[j+1];
+                        array[j+1] = temp;
+                    }
                 }
             }
         }
-        
+        return array;
     }
-    return array;
 }
+let dSortArray = declarationSortArray(arraySortNumber);
+console.log(`Function Declaration: ${dSortArray()}`);
 
-console.log(`Function Declaration: ${declarationSortArray(arraySortNumber)}`);
-
-let expressionSortArray = function (array, ascOrDesc = 'asc') {
+let expressionSortArray = function (array) {
     let temp;
-    for(let i = 0; i < array.length; i++){
-        for(let j = 0; j < array.length;j++){
-            if (ascOrDesc === 'desc') {
-                if ((array[j] < array[j+1]) * 1) {
-                    temp = array[j];
-                    array[j] = array[j+1];
-                    array[j+1] = temp;
-                }
-            }else if (ascOrDesc === 'asc') {
-                if ((array[j] > array[j+1]) * 1) {
-                    temp = array[j];
-                    array[j] = array[j+1];
-                    array[j+1] = temp;
+    return function (ascOrDesc = 'asc') {
+        for(let i = 0; i < array.length; i++){
+            for(let j = 0; j < array.length;j++){
+                if (ascOrDesc === 'desc') {
+                    if ((array[j] < array[j+1]) * 1) {
+                        temp = array[j];
+                        array[j] = array[j+1];
+                        array[j+1] = temp;
+                    }
+                }else if (ascOrDesc === 'asc') {
+                    if ((array[j] > array[j+1]) * 1) {
+                        temp = array[j];
+                        array[j] = array[j+1];
+                        array[j+1] = temp;
+                    }
                 }
             }
         }
-        
+        return array;
     }
-    return array;
 }
 
-console.log(`Function Expression: ${expressionSortArray(arraySortNumber,'desc')}`);
+arraySortNumber = [3,5,7,2,7,3,1,85,90];
+let eSortArray = expressionSortArray (arraySortNumber);
+console.log(`Function Expression: ${eSortArray('desc')}`);
 
-let arrowSortArray = (array, ascOrDesc = 'asc') => {
+let arrowSortArray = (array) => {
     let temp;
-    for(let i = 0; i < array.length; i++){
-        for(let j = 0; j < array.length;j++){
-            if (ascOrDesc === 'desc') {
-                if ((array[j] < array[j+1]) * 1) {
-                    temp = array[j];
-                    array[j] = array[j+1];
-                    array[j+1] = temp;
-                }
-            }else if (ascOrDesc === 'asc') {
-                if ((array[j] > array[j+1]) * 1) {
-                    temp = array[j];
-                    array[j] = array[j+1];
-                    array[j+1] = temp;
+    return function (ascOrDesc = 'asc') {
+        for(let i = 0; i < array.length; i++){
+            for(let j = 0; j < array.length;j++){
+                if (ascOrDesc === 'desc') {
+                    if ((array[j] < array[j+1]) * 1) {
+                        temp = array[j];
+                        array[j] = array[j+1];
+                        array[j+1] = temp;
+                    }
+                }else if (ascOrDesc === 'asc') {
+                    if ((array[j] > array[j+1]) * 1) {
+                        temp = array[j];
+                        array[j] = array[j+1];
+                        array[j+1] = temp;
+                    }
                 }
             }
         }
-        
+        return array;
     }
-    return array;
 }
 
-console.log(`Arrow function: ${arrowSortArray(arraySortNumber,'asc')}`);
+arraySortNumber = [3,5,7,2,7,3,1,85,90,186];
+let aSortArray = arrowSortArray(arraySortNumber);
+console.log(`Arrow function: ${aSortArray()}`);
 
 console.log('Task 8. Find number in array.');
 
@@ -405,9 +407,11 @@ console.log(`Task 13. Array String to LowerCase.`);
 let arrayTask13 = ['Alex', 'Vanya', 'Tanya', 'Lena', 'Tolya'];
 
 function declarationArrayToLowerCase (array) {
-    for (let i = 0; i< array.length; i++) {
+    let i = 0;
+    do{
         array[i] = array[i].toLowerCase();
-    }
+        i++;
+    }while(i < array.length);
     return array;
 }
 
@@ -441,19 +445,21 @@ console.log(`Task 14. Array String to UpperCase.`);
 arrayTask13 = ['Alex', 'Vanya', 'Tanya', 'Lena', 'Tolya'];
 
 function declarationArrayToUpperCase (array) {
-    for (let i = 0; i< array.length; i++) {
-        array[i] = array[i].toUpperCase();
+    let arrayResult = [];
+    for (let value of array) {
+        arrayResult.push(value.toUpperCase());
     }
-    return array;
+    return arrayResult;
 }
 
 console.log(`Function Declatation: ${declarationArrayToUpperCase(arrayTask13)}`);
 
 let expressionArrayToUpperCase = function (array) {
-    for (let i = 0; i< array.length; i++) {
-        array[i] = array[i].toUpperCase();
+    let arrayResult = [];
+    for (let value of array) {
+        arrayResult.push(value.toUpperCase());
     }
-    return array;
+    return arrayResult;
 }
 
 arrayTask13 = ['AlexXXXXXX', 'Vanya', 'TanyaFFFFF', 'Lena', 'Tolya'];
@@ -461,28 +467,24 @@ arrayTask13 = ['AlexXXXXXX', 'Vanya', 'TanyaFFFFF', 'Lena', 'Tolya'];
 console.log(`Function Expression: ${expressionArrayToUpperCase(arrayTask13)}`);
 
 let arrowArrayToUpperCase = (array) => {
-    for (let i = 0; i< array.length; i++) {
-        array[i] = array[i].toUpperCase();
+    let arrayResult = [];
+    for (let value of array) {
+        arrayResult.push(value.toUpperCase());
     }
-    return array;
+    return arrayResult;
 }
 
 arrayTask13 = ['AlexXXXXXX', 'VanyaRRRRRRR', 'TanyaFFFFF', 'Lena', 'TolyaFFFFF'];
 
-
 console.log(`Arrow Function: ${arrowArrayToUpperCase(arrayTask13)}`);
 
-
-//console.log(`Task 15. Array String to UpperCase.`);
-
-
 console.log(`Task 16. Sort array.`);
-let arrayTask16 = [44, 12, 11, 7, 1, 99, 43, 5, 69];
+let arrayTask16 = [44, 12, 11, 7, 1, 99, 43, 5, 69,10];
 let declarationArrowSortArray = (array) => {
     let temp;
-    for(let i = 0; i < array.length; i++){
-        for(let j = 0; j < array.length;j++){
-            if ((array[j] < array[j+1]) * 1) {
+    for(let i = 0; i < array.length-1;i++){
+        for(let j = 0; j < array.length-1-i;j++){
+            if (array[j] < array[j+1]) {
                 temp = array[j];
                 array[j] = array[j+1];
                 array[j+1] = temp;
@@ -499,9 +501,9 @@ arrayTask16 = [44, 12, 11, 7, 11, 58, 43, 5, 69];
 
 let expressionArrowSortArray = function (array) {
     let temp;
-    for(let i = 0; i < array.length; i++){
-        for(let j = 0; j < array.length;j++){
-            if ((array[j] < array[j+1]) * 1) {
+    for(let i = 0; i < array.length-1;i++){
+        for(let j = 0; j < array.length-1-i;j++){
+            if (array[j] < array[j+1]) {
                 temp = array[j];
                 array[j] = array[j+1];
                 array[j+1] = temp;
@@ -518,9 +520,9 @@ arrayTask16 = [44, 12, 11, 7, 11, 58, 43, 5, 69,45,65,13];
 
 let arrowArrowSortArray = (array) => {
     let temp;
-    for(let i = 0; i < array.length; i++){
-        for(let j = 0; j < array.length;j++){
-            if ((array[j] < array[j+1]) * 1) {
+    for(let i = 0; i < array.length-1;i++){
+        for(let j = 0; j < array.length-1-i;j++){
+            if (array[j] < array[j+1]) {
                 temp = array[j];
                 array[j] = array[j+1];
                 array[j+1] = temp;
